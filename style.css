@@ -112,4 +112,144 @@ section.elems{
     outline: none;
     color:white;
     font-size: 30px;
+    position: absolute;
+    right: 3%;
+    top: 5%;
+    cursor:pointer
 }
+
+.back:hover{
+    background-color: #cd0d11;
+}
+
+
+
+
+.todo-fullpage h2{
+    font-size: 80px;
+    margin: 20px;
+}
+
+.todo-fullpage .taskcontainer{
+    display: flex;
+    align-items:  center;
+    justify-content: space-around;
+    margin-top: 50px;
+    width: 100%;
+    height: 75%;
+    
+}
+
+.todo-fullpage .taskcontainer .addTasks{
+    width: 30%;
+    height: 100%;
+    background-color: var(--sec);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.todo-fullpage .taskcontainer .addTasks form{
+    display: flex;
+    flex-direction: column;
+   color: white;
+    
+    gap: 10px;
+}
+
+.todo-fullpage .taskcontainer .addTasks form input{
+    padding: 20px 30px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    background-color: var(--tri3);
+    color: white;
+}
+
+.todo-fullpage .taskcontainer .addTasks form textarea{
+    padding: 20px 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    height: 300px;
+    font-size: 20px;
+    background-color: var(--tri3);
+    color: white;
+}
+
+.todo-fullpage .taskcontainer .addTasks form .check-imp input{
+    scale: 1.5;
+}
+
+.todo-fullpage .taskcontainer .addTasks form .check-imp label{
+    scale: 1.5;
+}
+
+.todo-fullpage .taskcontainer .addTasks form button{
+    padding: 20px 30px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: var(--tri1);
+    transition: all ease 0.3s;
+
+}
+
+.todo-fullpage .taskcontainer .allTasks{
+    width: 60%;
+    height: 100%;
+    background-color: var(--tri3);
+    border-radius: 10px;
+    padding:10px;
+    overflow: auto;
+    
+}
+
+.todo-fullpage .taskcontainer .allTasks::-webkit-scrollbar{
+    display: hidden;
+}
+
+.todo-fullpage .taskcontainer .allTasks .task{
+    background-color: var(--tri1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:white;
+    padding-inline: 10px;
+    margin-bottom: 10px;
+}
+
+.todo-fullpage .taskcontainer .allTasks .task h2{
+    font-size: 50px;
+}
+
+.todo-fullpage .taskcontainer .allTasks .task h2 .imp{
+    font-size: 15px;
+    background-color: red;
+    padding: 3px 5px;
+    border-radius: 50px;
+}
+
+.todo-fullpage .taskcontainer .allTasks .task button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.todo-fullpage .taskcontainer .allTasks .task button:active{
+    scale: 0.95;
+}
+
+
+
+
