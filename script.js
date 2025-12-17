@@ -21,48 +21,70 @@ fullelemBackbtn.forEach((back)=>{
 
 openFeature();
 
-let allTasks = document.querySelector(".todo-fullpage .taskcontainer .allTasks");
+
+function todo(){
+var savedTasks = [];
+
+if(localStorage.getItem("TaskList")){
+    savedTasks = JSON.parse(localStorage.getItem("TaskList"));
+} else {
+    console.log("Task lIst is empty");
+}
+
+function renderTasks(){
+    var allTask = document.querySelector('.allTasks');
+    console.log(allTask)
+
+        var sum = ''
+
+        savedTasks.forEach(function (elem, idx) {
+            sum = sum + `<div class="task">
+        <h2>${elem.title} <span class="${elem.imp}">imp</span></h2>
+        <button id=${idx}>Mark as Completed</button>
+        </div>`
+        })
+
+        allTask.innerHTML = sum;
+
+        localStorage.setItem('TaskList', JSON.stringify(savedTasks))
+
+        document.querySelectorAll('.task button').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                savedTasks.splice(btn.id, 1)
+                renderTasks()
+            })
+        })
+    
+}
+
+renderTasks();
+
+
 let form = document.querySelector(".todo-fullpage .taskcontainer .addTasks form");
 let tasktitle = document.querySelector(".todo-fullpage .taskcontainer .addTasks form input");
 let taskdesc = document.querySelector(".todo-fullpage .taskcontainer .addTasks form textarea");
 let checkImp = document.querySelector(".todo-fullpage .taskcontainer .addTasks form .check-imp input");
-let savedTasks = [{
-    title:"task ka title",
-    desc:"task ka desc",
-    isImp:true
-}]
-
-console.log(form)
-
-function renderTasks(){
-    allTasks.innerHTML = "";
-    savedTasks.forEach((e)=>{
-        let div = document.createElement("div");
-        div.classList.add("task");
-        div.style.justifyContent = "space-between";
-        div.innerHTML = `
-        <div class="task">
-                        <h2>${e.title} ${e.isImp ? `<span class="imp">Imp</span>` : ""}</h2>
-                        <button>Mark as Completed</button>
-                    </div>
-        `;
-        allTasks.appendChild(div);
-
-    })
-}
-
-renderTasks();
 
 form.addEventListener("submit",function(e){
     e.preventDefault();
     console.log(tasktitle.value , taskdesc.value , checkImp.checked);
     savedTasks.push({title:tasktitle.value,desc:taskdesc.value,isImp:checkImp.checked});
     console.log(savedTasks);
+    localStorage.setItem("TaskList",JSON.stringify(savedTasks));
     renderTasks();
-    tasktitle.value = "";
-    taskdesc.value = "";
-    checkImp.value = "";
+    tasktitle.value = ''
+    taskdesc.value = ''
+    checkImp.checked = false;
 })
+
+}
+
+todo();
+
+
+
+
+
 
 
 

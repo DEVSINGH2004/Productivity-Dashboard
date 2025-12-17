@@ -123,7 +123,9 @@ section.elems{
 }
 
 
-
+/* .todo-fullpage{
+    display: block;
+} */
 
 .todo-fullpage h2{
     font-size: 80px;
