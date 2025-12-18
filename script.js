@@ -81,6 +81,51 @@ form.addEventListener("submit",function(e){
 
 todo();
 
+function dayPlanner(){
+var dayGoals = JSON.parse(localStorage.getItem("dayGoals")) || {};
+let dayPlanner = document.querySelector(".day-planner");
+
+var hours = Array.from({length:18},(elem,idx)=>{
+    return `${6+idx}:00 - ${7+idx}:00`
+})
+
+
+var wholeDaySum = '';
+
+hours.forEach((e,idx)=>{
+
+    let saveData = dayGoals[idx] || '';
+    wholeDaySum += `
+    <div class="day-planner-time">
+                    <p>${e}</p>
+                    <input id=${idx} type="text" placeholder="..." value=${saveData}>
+                </div>
+    `
+})
+
+
+dayPlanner.innerHTML = wholeDaySum;
+let dayPlannerInputs = document.querySelectorAll(".day-planner input");
+
+dayPlannerInputs.forEach((e)=>{
+    e.addEventListener("input",()=>{
+        dayGoals[e.id] = e.value;
+        localStorage.setItem("dayGoals",JSON.stringify(dayGoals));
+    })
+})
+
+}
+
+dayPlanner();
+
+
+
+
+
+
+
+
+
 
 
 
