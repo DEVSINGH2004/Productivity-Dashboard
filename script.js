@@ -118,6 +118,25 @@ dayPlannerInputs.forEach((e)=>{
 
 dayPlanner();
 
+function dailyMotivation(){
+    let quote = document.querySelector(".moti-fullpage .moti-container .moti-wrapper .moti-2 h2");
+let author = document.querySelector(".moti-fullpage .moti-container .moti-wrapper .moti-3 h2")
+
+async function fetchQuotes(){
+    let response  = await fetch('https://dummyjson.com/quotes/random');
+    let data = await response.json();
+    quote.innerHTML = data.quote;
+    author.innerHTML = data.author;
+    
+
+}
+
+fetchQuotes();
+
+
+}
+
+dailyMotivation();
 
 
 

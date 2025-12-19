@@ -18,7 +18,7 @@
 
 :root{
     --pri : #000000;
-    --sec:#ae0001;
+    --sec:#5f0808;
     --tri1:#eeba30;
     --tri2:#92731d;
     --tri3:	#740001;
@@ -302,6 +302,120 @@ section.elems{
     color: white;
     transition: all ease 0.2s;
 }
+
+.moti-fullpage{
+    /* display: block; */
+   
+}
+
+.moti-fullpage h1{
+    font-size: 80px;
+    margin: 20px;
+}
+
+.moti-fullpage .moti-container{
+    height: 60%;
+    width: 70%;
+    background-color: var(--tri3);
+    border-radius: 20px;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+.moti-fullpage .moti-container .moti-wrapper{
+    height: 90%;
+    width: 90%;
+    background-color: var(--tri1);
+    border-radius: 20px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px;
+}
+
+.moti-fullpage .moti-container .moti-wrapper .moti-1{
+    background-color: red;
+    padding: 20px 30px;
+    width: fit-content;
+    border-radius: 20px;
+}
+
+.moti-wrapper .moti-1 h2{
+    font-size: 30px;
+
+}
+
+.moti-fullpage .moti-container .moti-wrapper .moti-2{
+    margin: 50px;
+}
+
+.moti-fullpage .moti-container .moti-wrapper .moti-2 h2{
+    font-size: 40px;
+    font-weight: 700px;
+    color: black;
+}
+
+.moti-fullpage .moti-container .moti-wrapper .moti-3{
+    background-color: red;
+    width: fit-content;
+    padding: 10px 20px;
+    border-radius: 20px;
+    position: absolute;
+    right: 2%;
+    bottom: 7%;
+    
+}
+
+.moti-fullpage .moti-container .moti-wrapper .moti-3 h2{
+    
+}
+
+
+.pomo-fullpage{
+    display: block;
+    background-color: var(--sec);
+}
+
+.pomo-fullpage h1{
+    margin: 20px;
+}
+
+.pomo-fullpage .pomo-wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.pomo-fullpage .pomo-wrapper h1{
+    font-size: 150px;
+}
+
+.pomo-fullpage .pomo-wrapper button{
+    padding: 20px 30px;
+    margin: 7px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 500;
+    box-shadow: 5px 5px 0px black;
+    transition: all ease 0.3s;
+}
+
+.pomo-fullpage .pomo-wrapper button:active{
+    scale: 0.93;
+    box-shadow: 0px 0px 0px black;
+}
+
+
+
+
 
 
 
