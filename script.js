@@ -139,6 +139,73 @@ fetchQuotes();
 dailyMotivation();
 
 
+function pomoTimer(){
+    let totalSeconds = 25*60;
+let timerInterval = null;
+let timer = document.querySelector(".pomo-wrapper h1");
+let startbtn = document.querySelector(".start-button");
+let pausebtn = document.querySelector(".pause-button");
+let resetbtn = document.querySelector(".reset-button");
+let workSession = true;
+let session = document.querySelector(".pomo-fullpage .session h2")
+
+function updateTimer(){
+    let sec = totalSeconds%60;
+    let min = Math.floor(totalSeconds/60);
+
+    timer.innerHTML = `${String(min).padStart('2','0')}:${String(sec).padStart('2','0')}`;
+}
+
+startbtn.addEventListener("click",()=>{
+    clearInterval(timerInterval);
+
+    if(workSession){
+        
+            timerInterval = setInterval(()=>{
+    if(totalSeconds>0){
+            totalSeconds--;
+            updateTimer()
+        
+        } else {
+            workSession = false;
+            clearInterval(timerInterval);
+            timer.innerHTML = '05:00';
+            session.innerHTML = 'Take a Break'
+            totalSeconds = 5*60;
+        }
+
+    },5)
+        
+    } else {
+       
+       
+            timerInterval = setInterval(()=>{
+         if(totalSeconds>0){
+            totalSeconds--;
+            updateTimer()
+        } else {
+            workSession = true;
+            clearInterval(timerInterval);
+             timer.innerHTML = '25:00';
+             session.innerHTML = 'Work Session'
+             totalSeconds = 25*60;
+        }
+    },10)
+    }
+    
+})
+
+pausebtn.addEventListener("click",function(){
+    clearInterval(timerInterval);
+})
+
+resetbtn.addEventListener("click",function(){
+    totalSeconds = 1500;
+    updateTimer();
+})
+}
+pomoTimer();
+
 
 
 
