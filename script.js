@@ -206,6 +206,46 @@ resetbtn.addEventListener("click",function(){
 }
 pomoTimer();
 
+let left_h2 = document.querySelector(".header .left h2");
+let right_h1 = document.querySelector(".header .right h1");
+let right_h2 = document.querySelector(".header .right h2");
+let right_h3 = document.querySelector(".header .right h3");
+let right_h4 = document.querySelector(".header .right h4");
+let left_h1 = document.querySelector(".header .left h1");
+let api_key = 'f56d8ae9f3cc4bd2a4462006250812';
+let city = 'Ghaziabad'
+
+async function fetchWeather(){
+    let response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${api_key}&q=${city}`);
+    let data =  await response.json();
+    console.log(data)
+    right_h1.innerHTML = `${data.current.feelslike_c}°C`
+    right_h2.innerHTML = `Wind:${data.current.wind_kph}kph`
+    right_h3.innerHTML = `Humidity:${data.current.humidity}`
+    right_h4.innerHTML = `Precipitation:${data.current.precip_in}in`
+}
+
+fetchWeather();
+
+
+function updateDateandTime(){
+    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    let date = new Date()
+    let day = weekdays[date.getDay()];
+    let month = months[date.getMonth()];
+    let year = date.getFullYear();
+    let hour = date.getHours();
+    let min = date.getMinutes();
+    let sec = date.getSeconds();
+    let tarik = date.getDate();
+    console.log(day,month,tarik,year);
+    left_h2.innerHTML = `${tarik} ${month} ${year}`
+    left_h1.innerHTML = `${hour}:${min}:${String(sec).padStart(2,"0")}, ${day}`
+}
+
+setInterval(()=>{updateDateandTime()},1000)
+
 
 
 
