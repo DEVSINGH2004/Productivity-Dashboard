@@ -200,7 +200,7 @@ startbtn.addEventListener("click",()=>{
             totalSeconds = 5*60;
         }
 
-    },5)
+    },1000)
         
     } else {
        
@@ -216,7 +216,7 @@ startbtn.addEventListener("click",()=>{
              session.innerHTML = 'Work Session'
              totalSeconds = 25*60;
         }
-    },10)
+    },1000)
     }
     
 })
