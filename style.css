@@ -1,447 +1,545 @@
 @font-face {
-    font-family: aeonik ;
-    font-weight: 700;
-    src: url(./AeonikTRIAL-Bold.otf);
+  font-family: aeonik;
+  font-weight: 700;
+  src: url(./AeonikTRIAL-Bold.otf);
 }
 
 @font-face {
-    font-family: aeonik ;
-    font-weight: 500;
-    src: url(./AeonikTRIAL-Regular.otf);
+  font-family: aeonik;
+  font-weight: 500;
+  src: url(./AeonikTRIAL-Regular.otf);
 }
 
 @font-face {
-    font-family: aeonik ;
-    font-weight: 400;
-    src: url(./AeonikTRIAL-Light.otf);
+  font-family: aeonik;
+  font-weight: 400;
+  src: url(./AeonikTRIAL-Light.otf);
 }
 
-:root{
-    --pri : #000000;
-    --sec:#5f0808;
-    --tri1:#eeba30;
-    --tri2:#92731d;
-    --tri3:	#740001;
-
+:root {
+  --pri: #000000;
+  --sec: #5f0808;
+  --tri1: #eeba30;
+  --tri2: #92731d;
+  --tri3: #740001;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: aeonik;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: aeonik;
 }
 
-html,body{
-    height: 100%;
-    width: 100%;
-    background-color: var(--pri);
-    color: var(--tri1);
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
-main{
-    height: 100%;
-    width: 100%;
+main {
+  min-height: 100%;
+  width: 100%;
 }
 
-nav{
-    position: fixed;
-    width: 100%;
-    height: 70px;
-    background-color: var(--sec);
+.nav {
+  z-index: 9;
+  position: absolute;
+  top: 2.5%;
+  left: 4.5%;
+  background-color: var(--tri1);
+  width: 90%;
+  padding: 20px 30px;
+  border-radius: 10px;
 }
 
-.header{
-    width: 100%;
-    height: 250px;
-    background-image: url('https://images.unsplash.com/photo-1717361281431-e75c972e3f07?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border-radius: 10px;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-inline: 20px;
+.nav .nav-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
-section.elems{
-    height: 100%;
-    width: 100%;
-    background-color: var(--tri2);
-    padding-top: 80px;
-    padding-inline: 40px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 40px;
-   position: absolute;
+.nav .nav-in button {
+  padding: 5px 10px;
+  border: none;
+  font-size: 17px;
+  border-radius: 7px;
+  cursor: pointer;
+  -webkit-transition: all ease 0.2s;
+  -o-transition: all ease 0.2s;
+  transition: all ease 0.2s;
 }
 
-.elem{
-    height: 350px;
-    width: 250px;
-    overflow: hidden;
-    background-color: pink;
-    border-radius: 10px;
-     position: relative;
-     transition: all ease 0.5s;
+.nav .nav-in button:active {
+  scale: 0.96;
 }
 
-.elem>img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.header {
+  width: 100%;
+  height: 250px;
+  background-image: url("https://images.unsplash.com/photo-1717361281431-e75c972e3f07?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-inline: 20px;
+  margin-top: 1.5%;
 }
 
-.elem>h2{
-    position: absolute;
-    bottom: 4%;
-    right: 3%;
-    font-weight: 500;
-    font-size: 40px;
+section.elems {
+  height: 100%;
+  width: 100%;
+  background-color: var(--tri3);
+  padding-top: 80px;
+  padding-inline: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  gap: 10px;
+  position: absolute;
 }
 
-.elem:active{
-    scale: 0.90;
+.left h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
 }
 
-.fullelem{
-    height: 100%;
-    width: 100%;
-    background-color: var(--tri2);
-    display: none;
-    position: absolute;
+.left h3 {
+  font-size: 30px;
 }
 
-.fullelem>h1{
-    font-size: 50px;
+.right h1 {
+  font-size: 60px;
 }
 
-.back{
-    padding: 5px 10px;
-    background-color: red;
-    border-radius: 7px;
-    border: none;
-    outline: none;
-    color:white;
-    font-size: 30px;
-    position: absolute;
-    right: 3%;
-    top: 5%;
-    cursor:pointer
+.right .condition {
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
-.back:hover{
-    background-color: #cd0d11;
+.elem {
+  height: 350px;
+  width: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  -webkit-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  color: white;
 }
 
-
-/* .todo-fullpage{
-    display: block;
-} */
-
-.todo-fullpage h2{
-    font-size: 80px;
-    margin: 20px;
+.elem > img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
-.todo-fullpage .taskcontainer{
-    display: flex;
-    align-items:  center;
-    justify-content: space-around;
-    margin-top: 50px;
-    width: 100%;
-    height: 75%;
-    
+.elem > h2 {
+  position: absolute;
+  bottom: 4%;
+  right: 3%;
+  font-weight: 500;
+  font-size: 40px;
 }
 
-.todo-fullpage .taskcontainer .addTasks{
-    width: 30%;
-    height: 100%;
-    background-color: var(--sec);
-    border-radius: 10px;
-    padding: 20px;
+.elem:active {
+  scale: 0.9;
 }
 
-.todo-fullpage .taskcontainer .addTasks form{
-    display: flex;
-    flex-direction: column;
-   color: white;
-    
-    gap: 10px;
+.fullelem {
+  height: 100%;
+  width: 100%;
+  background-color: var(--tri2);
+  display: none;
+  position: absolute;
 }
 
-.todo-fullpage .taskcontainer .addTasks form input{
-    padding: 20px 30px;
-    border: none;
-    outline: none;
-    border-radius: 3px;
-    font-size: 20px;
-    margin-bottom: 10px;
-    background-color: var(--tri3);
-    color: white;
+.fullelem > h1 {
+  font-size: 50px;
 }
 
-.todo-fullpage .taskcontainer .addTasks form textarea{
-    padding: 20px 30px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    height: 300px;
-    font-size: 20px;
-    background-color: var(--tri3);
-    color: white;
+.back {
+  padding: 5px 10px;
+  background-color: red;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  right: 3%;
+  top: 5%;
+  cursor: pointer;
 }
 
-.todo-fullpage .taskcontainer .addTasks form .check-imp input{
-    scale: 1.5;
+.back:hover {
+  background-color: #cd0d11;
 }
 
-.todo-fullpage .taskcontainer .addTasks form .check-imp label{
-    scale: 1.5;
+.todo-fullpage {
+  color: white;
 }
 
-.todo-fullpage .taskcontainer .addTasks form button{
-    padding: 20px 30px;
-    border: none;
-    outline: none;
-    border-radius: 3px;
-    font-size: 20px;
-    font-weight: 500;
-    cursor: pointer;
-    background-color: var(--tri1);
-    transition: all ease 0.3s;
-
+.todo-fullpage h2 {
+  font-size: 80px;
+  margin: 20px;
 }
 
-.todo-fullpage .taskcontainer .allTasks{
-    width: 60%;
-    height: 100%;
-    background-color: var(--tri3);
-    border-radius: 10px;
-    padding:10px;
-    overflow: auto;
-    
+.todo-fullpage .taskcontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin-top: 50px;
+  width: 100%;
+  height: 75%;
 }
 
-.todo-fullpage .taskcontainer .allTasks::-webkit-scrollbar{
-    display: hidden;
+.todo-fullpage .taskcontainer .addTasks {
+  width: 30%;
+  height: 100%;
+  background-color: var(--sec);
+  border-radius: 10px;
+  padding: 20px;
 }
 
-.todo-fullpage .taskcontainer .allTasks .task{
-    background-color: var(--tri1);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color:white;
-    padding-inline: 10px;
-    margin-bottom: 10px;
+.todo-fullpage .taskcontainer .addTasks form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: white;
+
+  gap: 10px;
 }
 
-.todo-fullpage .taskcontainer .allTasks .task h2{
-    font-size: 50px;
+.todo-fullpage .taskcontainer .addTasks form input {
+  padding: 20px 30px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  background-color: var(--tri3);
+  color: white;
 }
 
-.todo-fullpage .taskcontainer .allTasks .task h2 .imp{
-    font-size: 15px;
-    background-color: red;
-    padding: 3px 5px;
-    border-radius: 50px;
+.todo-fullpage .taskcontainer .addTasks form textarea {
+  padding: 20px 30px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  height: 300px;
+  font-size: 20px;
+  background-color: var(--tri3);
+  color: white;
 }
 
-.todo-fullpage .taskcontainer .allTasks .task button{
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: green;
-    color: white;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: all ease 0.3s;
+.todo-fullpage .taskcontainer .addTasks form .check-imp input {
+  scale: 1.5;
 }
 
-.todo-fullpage .taskcontainer .allTasks .task button:active{
-    scale: 0.95;
+.todo-fullpage .taskcontainer .addTasks form .check-imp label {
+  scale: 1.5;
 }
 
-.planner-fullpage{
-    padding: 20px;
+.todo-fullpage .taskcontainer .addTasks form button {
+  padding: 20px 30px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--tri1);
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s;
 }
 
-.planner-fullpage h2{
-    font-size: 70px;
-    margin: 20px;
+.todo-fullpage .taskcontainer .allTasks {
+  width: 60%;
+  height: 100%;
+  background-color: var(--tri3);
+  border-radius: 10px;
+  padding: 10px;
+  overflow: auto;
 }
 
-.planner-fullpage .day-planner{
-    background-color: var(--sec);
-    height: 80%;
-    width: 100%;
-    border-radius: 20px;
-    margin-top: 30px;
-    padding: 20px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    overflow: auto;
+.todo-fullpage .taskcontainer .allTasks::-webkit-scrollbar {
+  display: hidden;
 }
 
-.planner-fullpage .day-planner .day-planner-time{
-    width: 40%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-bottom: 15px;
+.todo-fullpage .taskcontainer .allTasks .task {
+  background-color: var(--tri1);
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  color: white;
+  padding-inline: 10px;
+  margin-bottom: 10px;
 }
 
-.day-planner .day-planner-time p{
-    position: absolute;
-    top: 10%;
-    left: 1%;
-    font-size: 20px;
+.todo-fullpage .taskcontainer .allTasks .task h2 {
+  font-size: 50px;
 }
 
-.day-planner .day-planner-time input{
-    padding: 10px 20px;
-    width: 100%;
-    background-color: #740001;
-    border: none;
-    border-radius: 7px;
-    outline:none;
-    padding-top: 40px;
-    font-size: 30px;
-    color: white;
-    transition: all ease 0.2s;
+.todo-fullpage .taskcontainer .allTasks .task h2 .imp {
+  font-size: 15px;
+  background-color: red;
+  padding: 3px 5px;
+  border-radius: 50px;
 }
 
-.moti-fullpage{
-    /* display: block; */
-   
+.todo-fullpage .taskcontainer .allTasks .task button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s;
 }
 
-.moti-fullpage h1{
-    font-size: 80px;
-    margin: 20px;
+.todo-fullpage .taskcontainer .allTasks .task button:active {
+  scale: 0.95;
 }
 
-.moti-fullpage .moti-container{
-    height: 60%;
-    width: 70%;
-    background-color: var(--tri3);
-    border-radius: 20px;
-    position: relative;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    
+.planner-fullpage {
+  padding: 20px;
+  color: white;
 }
 
-.moti-fullpage .moti-container .moti-wrapper{
-    height: 90%;
-    width: 90%;
-    background-color: var(--tri1);
-    border-radius: 20px;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 10px;
+.planner-fullpage h2 {
+  font-size: 70px;
+  margin: 20px;
 }
 
-.moti-fullpage .moti-container .moti-wrapper .moti-1{
-    background-color: red;
-    padding: 20px 30px;
-    width: fit-content;
-    border-radius: 20px;
+.planner-fullpage .day-planner {
+  background-color: var(--sec);
+  height: 80%;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 30px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow: auto;
 }
 
-.moti-wrapper .moti-1 h2{
-    font-size: 30px;
-
+.planner-fullpage .day-planner .day-planner-time {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 15px;
 }
 
-.moti-fullpage .moti-container .moti-wrapper .moti-2{
-    margin: 50px;
+.day-planner .day-planner-time p {
+  position: absolute;
+  top: 10%;
+  left: 1%;
+  font-size: 20px;
 }
 
-.moti-fullpage .moti-container .moti-wrapper .moti-2 h2{
-    font-size: 40px;
-    font-weight: 700px;
-    color: black;
+.day-planner .day-planner-time input {
+  padding: 10px 20px;
+  width: 100%;
+  background-color: #740001;
+  border: none;
+  border-radius: 7px;
+  outline: none;
+  padding-top: 40px;
+  font-size: 30px;
+  color: white;
+  -webkit-transition: all ease 0.2s;
+  -o-transition: all ease 0.2s;
+  transition: all ease 0.2s;
 }
 
-.moti-fullpage .moti-container .moti-wrapper .moti-3{
-    background-color: red;
-    width: fit-content;
-    padding: 10px 20px;
-    border-radius: 20px;
-    position: absolute;
-    right: 2%;
-    bottom: 7%;
-    
+.moti-fullpage {
+  /* display: block; */
+  color: white;
 }
 
-.moti-fullpage .moti-container .moti-wrapper .moti-3 h2{
-    
+.moti-fullpage h1 {
+  font-size: 80px;
+  margin: 20px;
 }
 
-
-.pomo-fullpage{
-    background-color: var(--sec);
+.moti-fullpage .moti-container {
+  height: 60%;
+  width: 70%;
+  background-color: var(--tri3);
+  border-radius: 20px;
+  position: relative;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
-.pomo-fullpage h1{
-    margin: 20px;
+.moti-fullpage .moti-container .moti-wrapper {
+  height: 90%;
+  width: 90%;
+  background-color: var(--tri1);
+  border-radius: 20px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 10px;
 }
 
-.pomo-fullpage .pomo-wrapper{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    text-align: center;
+.moti-fullpage .moti-container .moti-wrapper .moti-1 {
+  background-color: red;
+  padding: 20px 30px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 20px;
 }
 
-.pomo-fullpage .pomo-wrapper h1{
-    font-size: 150px;
+.moti-wrapper .moti-1 h2 {
+  font-size: 30px;
 }
 
-.pomo-fullpage .pomo-wrapper button{
-    padding: 20px 30px;
-    margin: 7px;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-    font-size: 20px;
-    font-weight: 500;
-    box-shadow: 5px 5px 0px black;
-    transition: all ease 0.3s;
+.moti-fullpage .moti-container .moti-wrapper .moti-2 {
+  margin: 50px;
 }
 
-.pomo-fullpage .pomo-wrapper button:active{
-    scale: 0.93;
-    box-shadow: 0px 0px 0px black;
+.moti-fullpage .moti-container .moti-wrapper .moti-2 h2 {
+  font-size: 40px;
+  font-weight: 700px;
+  color: black;
 }
 
-.pomo-fullpage .session h2{
-    position: absolute;
-    top: 18%;
-    left: 50%;
-    transform: translate(-50%,0);
-    font-size: 40px;
-    background-color: yellow;
-    color: red;
-    padding: 15px 20px;
-    border-radius: 7px;
+.moti-fullpage .moti-container .moti-wrapper .moti-3 {
+  background-color: red;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 20px;
+  position: absolute;
+  right: 2%;
+  bottom: 7%;
 }
 
+.pomo-fullpage {
+  background-color: var(--sec);
+  color: white;
+}
 
+.pomo-fullpage h1 {
+  margin: 20px;
+}
 
+.pomo-fullpage .pomo-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
+.pomo-fullpage .pomo-wrapper h1 {
+  font-size: 150px;
+}
 
+.pomo-fullpage .pomo-wrapper button {
+  padding: 20px 30px;
+  margin: 7px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 500;
+  -webkit-box-shadow: 5px 5px 0px black;
+  box-shadow: 5px 5px 0px black;
+  -webkit-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
 
+.pomo-fullpage .pomo-wrapper button:active {
+  scale: 0.93;
+  -webkit-box-shadow: 0px 0px 0px black;
+  box-shadow: 0px 0px 0px black;
+}
 
+.pomo-fullpage .session h2 {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  font-size: 40px;
+  background-color: yellow;
+  color: red;
+  padding: 15px 20px;
+  border-radius: 7px;
+}

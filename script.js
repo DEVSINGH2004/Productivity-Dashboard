@@ -1,12 +1,31 @@
+function changeTheme(){
+    let navBtn = document.querySelector(".nav button");
+    let bg = document.querySelector("section.elems");
+    let flag = false;
+    navBtn.addEventListener("click",()=>{
+        if(!flag){
+            bg.style.backgroundColor = "#2B633E";
+            flag = true;
+        } else {
+            bg.style.backgroundColor = "";
+            flag = false;
+        }
+        
+    })
+}
+
+changeTheme();
+
 function openFeature(){
     let elems = document.querySelectorAll(".elem");
 let fullelem = document.querySelectorAll(".fullelem");
 let fullelemBackbtn = document.querySelectorAll(".fullelem .back");
+let nav = document.querySelector(".nav")
 
 elems.forEach((elem)=>{
     elem.addEventListener("click",function(){
         console.log(elem.id);
-
+        nav.style.display = "none";
         fullelem[elem.id].style.display = "block";
     })
 
@@ -14,12 +33,15 @@ elems.forEach((elem)=>{
 
 fullelemBackbtn.forEach((back)=>{
     back.addEventListener("click",()=>{
+        nav.style.display = "block";
         fullelem[back.id].style.display = "none";
     })
 })
 }
 
 openFeature();
+
+
 
 
 function todo(){
@@ -39,9 +61,10 @@ function renderTasks(){
 
         savedTasks.forEach(function (elem, idx) {
             sum = sum + `<div class="task">
-        <h2>${elem.title} <span class="${elem.imp}">imp</span></h2>
+        <h2>${elem.title} ${elem.isImp ? '<span class="imp">imp</span>' : ''}</h2>
         <button id=${idx}>Mark as Completed</button>
-        </div>`
+        </div>
+        `
         })
 
         allTask.innerHTML = sum;
@@ -117,6 +140,9 @@ dayPlannerInputs.forEach((e)=>{
 }
 
 dayPlanner();
+
+
+
 
 function dailyMotivation(){
     let quote = document.querySelector(".moti-fullpage .moti-container .moti-wrapper .moti-2 h2");
@@ -206,12 +232,14 @@ resetbtn.addEventListener("click",function(){
 }
 pomoTimer();
 
+function weatherBoard(){
 let left_h2 = document.querySelector(".header .left h2");
 let right_h1 = document.querySelector(".header .right h1");
-let right_h2 = document.querySelector(".header .right h2");
+let right_h2 = document.querySelector(".header .right .feel-like");
 let right_h3 = document.querySelector(".header .right h3");
 let right_h4 = document.querySelector(".header .right h4");
 let left_h1 = document.querySelector(".header .left h1");
+let condition = document.querySelector(".header .right .condition");
 let api_key = 'f56d8ae9f3cc4bd2a4462006250812';
 let city = 'Ghaziabad'
 
@@ -220,15 +248,17 @@ async function fetchWeather(){
     let data =  await response.json();
     console.log(data)
     right_h1.innerHTML = `${data.current.feelslike_c}°C`
+    condition.innerHTML = `${data.current.condition.text}`
     right_h2.innerHTML = `Wind:${data.current.wind_kph}kph`
     right_h3.innerHTML = `Humidity:${data.current.humidity}`
-    right_h4.innerHTML = `Precipitation:${data.current.precip_in}in`
+    right_h4.innerHTML = `Precipitation:${data.current.precip_in}%`
 }
 
 fetchWeather();
 
 
 function updateDateandTime(){
+    const header = document.querySelector(".header");
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let date = new Date()
@@ -239,12 +269,32 @@ function updateDateandTime(){
     let min = date.getMinutes();
     let sec = date.getSeconds();
     let tarik = date.getDate();
-    console.log(day,month,tarik,year);
+    console.log(hour,day,month,tarik,year);
+    if(hour>12){
+        left_h1.innerHTML = `${String(hour).padStart(2,"0")-12}:${String(min).padStart(2,"0")}:${String(sec).padStart(2,"0")} PM, ${day}`
+    } else {
+        left_h1.innerHTML = `${Math.abs(String(hour).padStart(2,"0")-12)}:${String(min).padStart(2,"0")}:${String(sec).padStart(2,"0")} AM, ${day}`
+    }
+
+    if(hour>=5 && hour<=12){
+        header.style.backgroundImage =
+  "url('https://images.unsplash.com/photo-1612863229236-60722f5ef8c9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+    } else if(hour>12 && hour<5){
+        header.style.backgroundImage =
+  "url('https://plus.unsplash.com/premium_photo-1674331209640-64d391f2e2e9?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')";
+    }
     left_h2.innerHTML = `${tarik} ${month} ${year}`
-    left_h1.innerHTML = `${hour}:${min}:${String(sec).padStart(2,"0")}, ${day}`
+    
+    
+
 }
 
 setInterval(()=>{updateDateandTime()},1000)
+}
+
+weatherBoard();
+
+
 
 
 
